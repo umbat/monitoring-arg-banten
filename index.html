@@ -14,29 +14,25 @@
     <script type = "text/javascript" src="function.js"></script>  
   </head>
 
-  <body class="bg-gading overflow-auto">
-    <header>
-      <div x-data="{ sidebarOpen: false }" class="absolute top-0 left-0 flex overflow-x-hidden h-screen m-0 p-0 box-border font-poppins">
+  <body class="bg-gading">
+    <header class="items-center top-0 flex w-full">
+      <div x-data="{ sidebarOpen: false }" class="container font-poppins">
         <!-- Header Start -->
-        <div class="fixed w-full bg-hijau-tua">
-          <ul class="block lg:flex p-3">
-            <li class="px-2 py-2">
-              <button class="text-gading no-underline items-center flex text-center my-0 px-3" @click="sidebarOpen = !sidebarOpen">
-                <i class="fa-solid fa-bars text-2xl ">
-                </i>
-              </button>
-            </li>
-            <li>
-              <a href="#" class="text-gading no-underline items-center flex m-1 px-3">
-                <p class="text-2xl">Monitoring ARG Banten</p>
-              </a>
-            </li>
-          </ul>
+        <div class="fixed z-20 top-0 left-0 flex w-full items-center bg-hijau-tua">
+          <div class="py-4 px-2">
+            <button class="ml-5 mr-2 text-gading fa-solid fa-bars text-2xl" @click="sidebarOpen = !sidebarOpen"></button>
+          </div>
+          <div class="py-4">
+            <a href="#" class="ml-4 text-gading text-2xl">Dashboard</a>
+          </div>
+          <div class="absolute right-0 px-4">
+            <img src="bmkg-logo.png" class="mx-3 relative w-9">
+          </div>
         </div>
         <!-- Header End -->
         
         <!-- Side Bar Start -->
-        <div class="w-56 h-full bg-hijau-tua fixed mt-16 left-0 px-5 py-8 flex-shrink-0 flex flex-col border-r transition-all duration-300" :class="{ '-ml-56': !sidebarOpen }">
+        <div class="z-20 flex-shrink-0 w-56 top-0 left-0 h-full fixed bg-hijau-tua mt-16 px-2 py-8 flex flex-col border-r transition-all duration-300" :class="{ '-ml-56': !sidebarOpen }">
           <ul class="list-none relative">
             <li class="px-2 py-2">
               <a href="index.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
@@ -67,13 +63,20 @@
         </div>
       </div>
     </header>
-      
-    <div class="ml-230px mr-2 mt-20 mb-3 fixed w-full  bg-putih-kuning rounded-lg">
-      <div>
-        <h1 class="text-3xl p-3">Dashboard</h1>
-        <div id="map" class="h-480px w-1080px ml-4 mb-4"></div>
+
+    <div class="z-10 mt-20 w-full">
+      <div class="shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
+        <h1 class="text-2xl p-4">Automatic Rain Gauge Map</h1>
+        <div class="w-full">
+          <div id="map" class="z-10 h-480px mx-4">
+            Map
+          </div>
+        </div>
+        <p class="my-2 mx-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam expedita perferendis eligendi architecto, quidem inventore ratione labore neque ea molestiae. Velit magnam corrupti assumenda, adipisci quod quae libero perferendis doloribus.</p>
       </div>
     </div>
+    
+    <hr class="my-20 border-t-4" />
     
   </body>
 </html>

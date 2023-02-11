@@ -1,72 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>History Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Monitoring ARG Banten</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
     <script src="https://kit.fontawesome.com/2844444424.js" crossorigin="anonymous"></script>
-</head>
-<body class="bg-gading">
-    <div x-data="{ sidebarOpen: true }" class="absolute top-0 left-0 flex overflow-x-hidden h-screen m-0 p-0 box-border font-poppins">
-      <div class="mb-3 fixed w-full bg-hijau-tua">
-        <ul class="block lg:flex p-3">
-          <li>
-            <a class="text-gading no-underline items-center flex m-1" @click="sidebarOpen = !sidebarOpen">
-              <i class="fa-solid fa-bars text-xl">
-              </i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="text-gading no-underline items-center flex m-1">
-              <p class="text-2xl ml-2">Monitoring ARG Banten</p>
-            </a>
-          </li>
-          
-        </ul>
-      </div>
-      <!-- <aside class="flex-shrink-0 flex flex-col border-r transition-all duration-300" :class="{ '-ml-64': !sidebarOpen }"> -->
-        <div class="w-56 h-full bg-hijau-tua fixed mt-16 left-0 px-5 py-8 flex-shrink-0 flex flex-col border-r transition-all duration-300" :class="{ '-ml-56': !sidebarOpen }">
-          <!-- <a class="block mt-15 mb-24">
-            <img src="/src/assets/bmkg-logo.png" class="h-44 px-5">
-          </a> -->
+    <script type = "text/javascript" src="function.js"></script>  
+  </head>
+
+  <body class="bg-gading overflow-auto" @resize.window="handleResize()">
+    <header class="absolute z-10 items-center">
+      <div x-data="{ sidebarOpen: false }" class="absolute flex font-poppins">
+        <!-- Header Start -->
+        <div class="fixed z-20 top-0 left-0 flex w-full items-center bg-hijau-tua">
+          <div class="py-4 px-2">
+            <button class="ml-5 mr-2 text-gading fa-solid fa-bars text-2xl" @click="sidebarOpen = !sidebarOpen"></button>
+          </div>
+          <div class="py-4">
+            <a href="#" class="ml-4 text-gading text-2xl">History Data</a>
+          </div>
+          <div class="absolute right-0 px-4">
+            <img src="bmkg-logo.png" class="mx-3 relative w-9">
+          </div>
+        </div>
+        <!-- Header End -->
+        
+        <!-- Side Bar Start -->
+        <div class="z-20 w-56 top-0 left-0 h-full fixed bg-hijau-tua mt-16 px-5 py-8 flex-shrink-0 flex flex-col border-r transition-all duration-300" :class="{ '-ml-56': !sidebarOpen }">
           <ul class="list-none relative">
-            <li class="px-3 py-2">
+            <li class="px-2 py-2">
               <a href="index.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
                 <i class="fa-solid fa-house text-2xl mr-5 "></i>
                 <p >Dashboard</p>
               </a>
             </li>
-            <li class="px-3 py-2">
+            <li class="px-2 py-2">
               <a href="access-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
                 <i class="fa-solid fa-database text-2xl mr-5"></i>
                 <p>Access Data</p>
               </a>
             </li>
-            <li class="px-3 py-2">
+            <li class="px-2 py-2">
               <a href="history-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
                 <i class="fa-solid fa-clock-rotate-left text-2xl mr-5"></i>
                 <p>History Data</p>
               </a>
             </li>
-            <li class="px-3 py-2">
+            <li class="px-2 py-2">
               <a href="export-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
                 <i class="fa-solid fa-download text-2xl mr-5"></i>
                 <p>Export Data</p>
               </a>
             </li>
-            <div class="w-full h-12 absolute left-0 -z-0 rounded-xl hidden duration-500 hover:block"></div>
           </ul>
+        <!-- Side Bar End -->
         </div>
-      <!-- </aside> -->
+      </div>
+    </header>
 
-      <div class="ml-230px mr-2 mt-20 mb-3 fixed w-full  bg-putih-kuning rounded-lg">
-        <div>
-          <h1 class="text-3xl p-3">History Data</h1>
+      <div class="z-10 mt-20 w-full">
+        <div class="shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
+          <h1 class="text-5xl p-4">History Data</h1>
         </div>
       </div>
     </div>

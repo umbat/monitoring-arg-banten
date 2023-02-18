@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Monitoring ARG Banten</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
     <script src="https://kit.fontawesome.com/2844444424.js" crossorigin="anonymous"></script>
-    <script type = "text/javascript" src="function.js"></script>  
+    <script type="text/javascript" src="function.js"></script>
   </head>
 
   <body class="bg-gading" x-data="{ sidebarOpen: false }" class="container font-poppins">
@@ -34,14 +34,14 @@
           </div>
         </div>
         <!-- Header End -->
-        
+
         <!-- Side Bar Start -->
         <div class="z-20 w-56 top-0 left-0 h-full fixed bg-hijau-tua mt-16 px-5 py-8 flex-shrink-0 flex flex-col border-r transition-all duration-300" :class="{ '-ml-56': !sidebarOpen }">
           <ul class="list-none relative">
             <li class="px-2 py-2">
               <a href="index.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
-                <i class="fa-solid fa-house text-2xl mr-5 "></i>
-                <p >Dashboard</p>
+                <i class="fa-solid fa-house text-2xl mr-5"></i>
+                <p>Dashboard</p>
               </a>
             </li>
             <li class="px-2 py-2">
@@ -63,16 +63,17 @@
               </a>
             </li>
           </ul>
-        <!-- Side Bar End -->
         </div>
+        <!-- Side Bar End -->
       </div>
     </header>
 
+    <div class="transition-all duration-300" :class="{ 'ml-56': sidebarOpen}">
       <div class="z-10 mt-20 w-full">
         <div class="shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
-          <h1 class="text-5xl p-4">Export Data</h1>
+          <h1 class="text-2xl p-4">Export Data</h1>
         </div>
       </div>
     </div>
-</body>
+  </body>
 </html>

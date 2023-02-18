@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
     <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
     <script src="https://kit.fontawesome.com/2844444424.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="function.js"></script>
+    <script type="text/javascript" src="js/maps.js"></script>
   </head>
 
   <body class="bg-gading" x-data="{ sidebarOpen: false }" class="container font-poppins">
@@ -70,7 +70,7 @@
       </div>
     </header>
 
-    <div :class="{ 'ml-56': sidebarOpen}">
+    <div class="transition-all duration-300" :class="{ 'ml-56': sidebarOpen}">
       <div class="z-10 mt-20 w-full">
         <div class="shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
           <h1 class="text-2xl p-4">Automatic Rain Gauge Map</h1>

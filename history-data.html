@@ -14,19 +14,23 @@
     <script type = "text/javascript" src="function.js"></script>  
   </head>
 
-  <body class="bg-gading overflow-auto" @resize.window="handleResize()">
-    <header class="absolute z-10 items-center">
-      <div x-data="{ sidebarOpen: false }" class="absolute flex font-poppins">
+  <body class="bg-gading" x-data="{ sidebarOpen: false }" class="container font-poppins">
+    <header class="top-0 flex">
+      <div>
         <!-- Header Start -->
-        <div class="fixed z-20 top-0 left-0 flex w-full items-center bg-hijau-tua">
-          <div class="py-4 px-2">
-            <button class="ml-5 mr-2 text-gading fa-solid fa-bars text-2xl" @click="sidebarOpen = !sidebarOpen"></button>
-          </div>
-          <div class="py-4">
-            <a href="#" class="ml-4 text-gading text-2xl">History Data</a>
-          </div>
-          <div class="absolute right-0 px-4">
-            <img src="bmkg-logo.png" class="mx-3 relative w-9">
+        <div>
+          <div class="fixed z-20 top-0 left-0 flex w-full items-center bg-hijau-tua">
+            <div class="pt-3 pb-4 pl-2 items-center">
+              <button class="ml-4 mr-2 text-gading fa-solid fa-bars text-2xl" @click="sidebarOpen = !sidebarOpen"></button>
+              <a href="#" class="ml-6 text-gading text-3xl font-medium">History Data</a>
+            </div>
+
+            <div class="absolute right-0 px-4">
+              <div class="flex items-center">
+                <a href="#" class="pt-2 pb-4 mr-4 text-gading text-xl font-normal">Monitoring ARG Banten</a>
+                <img src="bmkg-logo.png" class="py-2 mx-3 relative w-8" />
+              </div>
+            </div>
           </div>
         </div>
         <!-- Header End -->

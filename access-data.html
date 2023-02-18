@@ -14,19 +14,23 @@
     <script type = "text/javascript" src="function.js"></script>  
   </head>
 
-  <body class="bg-gading overflow-auto" @resize.window="handleResize()">
+  <body class="bg-gading" x-data="{ sidebarOpen: false }" class="container font-poppins">
     <header class="absolute z-10 items-center">
-      <div x-data="{ sidebarOpen: false }" class="absolute flex font-poppins">
+      <div>
         <!-- Header Start -->
-        <div class="fixed z-20 top-0 left-0 flex w-full items-center bg-hijau-tua">
-          <div class="py-4 px-2">
-            <button class="ml-5 mr-2 text-gading fa-solid fa-bars text-2xl" @click="sidebarOpen = !sidebarOpen"></button>
-          </div>
-          <div class="py-4">
-            <a href="#" class="ml-4 text-gading text-2xl">Access Data</a>
-          </div>
-          <div class="absolute right-0 px-4">
-            <img src="bmkg-logo.png" class="mx-3 relative w-9">
+        <div>
+          <div class="fixed z-20 top-0 left-0 flex w-full items-center bg-hijau-tua">
+            <div class="pt-3 pb-4 pl-2 items-center">
+              <button class="ml-4 mr-2 text-gading fa-solid fa-bars text-2xl" @click="sidebarOpen = !sidebarOpen"></button>
+              <a href="#" class="ml-6 text-gading text-3xl font-medium">Access Data</a>
+            </div>
+
+            <div class="absolute right-0 px-4">
+              <div class="flex items-center">
+                <a href="#" class="pt-2 pb-4 mr-4 text-gading text-xl font-normal">Monitoring ARG Banten</a>
+                <img src="bmkg-logo.png" class="py-2 mx-3 relative w-8" />
+              </div>
+            </div>
           </div>
         </div>
         <!-- Header End -->
@@ -64,205 +68,209 @@
       </div>
     </header>
 
-    <div class="z-10 mt-20 w-full">
+    <div :class="{ 'ml-56': sidebarOpen}">
+      <div class="z-10 mt-20 w-full">
         <div class="shadow-lg bg-putih-kuning rounded-lg mx-4">
           <h1 class="text-3xl p-4">Status Rainfall Data</h1>
-          <!-- <hr class="my-4 border-t-4"> -->
+            <!-- <hr class="my-4 border-t-4"> -->
           <div class="flex flex-wrap">
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/5">
-            <div class="mb-10 overflow-hidden rounded-xl bg-kotak-1">
-              <div class="py-8 px-2">
-                <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan sangat ringan</h3>
-                <h2 class="text-center mb-6 block text-lg font-semibold text-black">(&lt; 1 mm/jam)</h2>
-                <h1 class="text-center mb-2 font-medium text-7xl">0</h1>
-                <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
-                <h2 class="text-center block text-xl font-semibold text-black">0%</h2>
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/5" :class="{ 'w-full': sidebarOpen}">
+              <div class="mb-10 overflow-hidden rounded-xl bg-kotak-1">
+                <div class="py-8 px-2">
+                  <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan sangat ringan</h3>
+                  <h2 class="text-center mb-6 block text-lg font-semibold text-black">(&lt; 1 mm/jam)</h2>
+                  <h1 class="text-center mb-2 font-medium text-7xl">0</h1>
+                  <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
+                  <h2 class="text-center block text-xl font-semibold text-black">0%</h2>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/5">
-            <div class="mb-10 overflow-hidden rounded-xl bg-kotak-2">
-              <div class="py-8 px-2">
-                <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan ringan</h3>
-                <h2 class="text-center mb-6 block text-lg font-semibold text-black">(1 - 5 mm/jam)</h2>
-                <h1 class="text-center mb-2 font-medium text-7xl">3</h1>
-                <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
-                <h2 class="text-center block text-xl font-semibold text-black">30%</h2>
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/5" :class="{ 'w-1/2': sidebarOpen}">
+              <div class="mb-10 overflow-hidden rounded-xl bg-kotak-2">
+                <div class="py-8 px-2">
+                  <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan ringan</h3>
+                  <h2 class="text-center mb-6 block text-lg font-semibold text-black">(1 - 5 mm/jam)</h2>
+                  <h1 class="text-center mb-2 font-medium text-7xl">3</h1>
+                  <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
+                  <h2 class="text-center block text-xl font-semibold text-black">30%</h2>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/5">
-            <div class="mb-10 overflow-hidden rounded-xl bg-kotak-3">
-              <div class="py-8 px-2">
-                <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan sedang</h3>
-                <h2 class="text-center mb-6 block text-lg font-semibold text-black">(5 - 10 mm/jam)</h2>
-                <h1 class="text-center mb-2 font-medium text-7xl">1</h1>
-                <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
-                <h2 class="text-center block text-xl font-semibold text-black">10%</h2>
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/5" :class="{ 'w-1/2': sidebarOpen}">
+              <div class="mb-10 overflow-hidden rounded-xl bg-kotak-3">
+                <div class="py-8 px-2">
+                  <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan sedang</h3>
+                  <h2 class="text-center mb-6 block text-lg font-semibold text-black">(5 - 10 mm/jam)</h2>
+                  <h1 class="text-center mb-2 font-medium text-7xl">1</h1>
+                  <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
+                  <h2 class="text-center block text-xl font-semibold text-black">10%</h2>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/5">
-            <div class="mb-10 overflow-hidden rounded-xl bg-kotak-4">
-              <div class="py-8 px-2">
-                <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan lebat</h3>
-                <h2 class="text-center mb-6 block text-lg font-semibold text-black">(10 - 20 mm/jam)</h2>
-                <h1 class="text-center mb-2 font-medium text-7xl">2</h1>
-                <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
-                <h2 class="text-center block text-xl font-semibold text-black">20%</h2>
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/5" :class="{ 'w-1/2': sidebarOpen}">
+              <div class="mb-10 overflow-hidden rounded-xl bg-kotak-4">
+                <div class="py-8 px-2">
+                  <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan lebat</h3>
+                  <h2 class="text-center mb-6 block text-lg font-semibold text-black">(10 - 20 mm/jam)</h2>
+                  <h1 class="text-center mb-2 font-medium text-7xl">2</h1>
+                  <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
+                  <h2 class="text-center block text-xl font-semibold text-black">20%</h2>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="w-full px-4 lg:w-1/2 xl:w-1/5">
-            <div class="mb-10 overflow-hidden rounded-xl bg-kotak-5">
-              <div class="py-8 px-2">
-                <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan sangat lebat</h3>
-                <h2 class="text-center mb-6 block text-lg font-semibold text-black">(&gt; 20 mm/jam)</h2>
-                <h1 class="text-center mb-2 font-medium text-7xl">0</h1>
-                <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
-                <h2 class="text-center block text-xl font-semibold text-black">0%</h2>
+            <div class="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/5" :class="{ 'w-1/2': sidebarOpen}">
+              <div class="mb-10 overflow-hidden rounded-xl bg-kotak-5">
+                <div class="py-8 px-2">
+                  <h3 class="text-center mb-3 block text-xl font-semibold text-black">Hujan sangat lebat</h3>
+                  <h2 class="text-center mb-6 block text-lg font-semibold text-black">(&gt; 20 mm/jam)</h2>
+                  <h1 class="text-center mb-2 font-medium text-7xl">0</h1>
+                  <h2 class="text-center mb-6 block text-xl font-semibold text-black">ARG</h2>
+                  <h2 class="text-center block text-xl font-semibold text-black">0%</h2>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
-
-        <div class="w-full flex flex-wrap">
-          <div class="mt-4 w-full xl:w-1/4">
-            <div class="z-10 shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
-              <h1 class="text-2xl p-4">Curah Hujan 1 Jam</h1>
-              <hr class="border-t-2 mx-4">
-              <table class="table-auto mx-auto my-4 xl:text-base lg:text-xl sm:text-lg">
-                <tbody>
-                  <tr>
-                    <td>ARG Cibaliung</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG SMPK Panggarangan</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Menes</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Pandeglang</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG BPP Balaraja Tangerang</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Banjar Irigasi</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Cisalak Baru</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Kramat Watu</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Tirtayasa</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Mauk</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr class="border-t-0">
+  
+          <div class="w-full flex flex-wrap">
+            <div class="mt-4 w-full xl:w-1/4" :class="{ 'w-1/3': sidebarOpen}">
+              <div class="z-10 shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
+                <h1 class="text-2xl p-4">Curah Hujan 1 Jam</h1>
+                <hr class="border-t-2 mx-4">
+                <table class="table-auto mx-auto my-4 xl:text-base lg:text-xl sm:text-lg">
+                  <tbody>
+                    <tr>
+                      <td>ARG Cibaliung</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG SMPK Panggarangan</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Menes</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Pandeglang</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG BPP Balaraja Tangerang</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Banjar Irigasi</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Cisalak Baru</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Kramat Watu</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Tirtayasa</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Mauk</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr class="border-t-0">
+              </div>
             </div>
-          </div>
-          <div class="mt-4 w-full xl:w-2/4">
-            <div class="z-10 shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4 xl:mx-0">
-              <h1 class="text-2xl p-4">Kondisi Cuaca</h1>
-              <hr class="border-t-2 mx-4">
-              <h1 class="text-2xl p-4 text-center">ARG Tirtayasa</h1>
-              <img src="src/assets/0 (Cerah - Malam).png" class="mx-auto p-4 h-56">
-              <h1 class="text-2xl p-4 text-center">Cerah</h1>
-              <p class="text-right m-2">Last update 12/2/2023 20:00:00</p>
 
+            <div class="mt-4 w-full xl:w-2/4" :class="{ 'w-1/3': sidebarOpen}">
+              <div class="z-10 shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4 xl:mx-0">
+                <h1 class="text-2xl p-4">Kondisi Cuaca</h1>
+                <hr class="border-t-2 mx-4">
+                <h1 class="text-2xl p-4 text-center">ARG Tirtayasa</h1>
+                <img src="src/assets/0 (Cerah - Malam).png" class="mx-auto p-4 h-56">
+                <h1 class="text-2xl p-4 text-center">Cerah</h1>
+                <p class="text-right m-2">Last update 12/2/2023 20:00:00</p>
+              </div>
             </div>
-          </div>
-          <div class="mt-4 w-full xl:w-1/4">
-            <div class="z-10 shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
-              <h1 class="text-2xl p-4">Curah Hujan 1 Hari</h1>
-              <hr class="border-t-2 mx-4">
-              <table class="table-auto mx-auto my-4 xl:text-base lg:text-xl sm:text-lg">
-                <tbody>
-                  <tr>
-                    <td>ARG Cibaliung</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG SMPK Panggarangan</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Menes</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Pandeglang</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG BPP Balaraja Tangerang</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Banjar Irigasi</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Cisalak Baru</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Kramat Watu</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Tirtayasa</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                  <tr>
-                    <td>ARG Mauk</td>
-                    <td class="px-4 py-1">xx</td>
-                    <td>mm</td>
-                  </tr>
-                </tbody>
-              </table>
-              <hr class="border-t-0">
+
+            <div class="mt-4 w-full xl:w-1/4" :class="{ 'w-1/3: sidebarOpen}">
+              <div class="z-10 shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
+                <h1 class="text-2xl p-4">Curah Hujan 1 Hari</h1>
+                <hr class="border-t-2 mx-4">
+                <table class="table-auto mx-auto my-4 xl:text-base lg:text-xl sm:text-lg">
+                  <tbody>
+                    <tr>
+                      <td>ARG Cibaliung</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG SMPK Panggarangan</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Menes</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Pandeglang</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG BPP Balaraja Tangerang</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Banjar Irigasi</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Cisalak Baru</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Kramat Watu</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Tirtayasa</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                    <tr>
+                      <td>ARG Mauk</td>
+                      <td class="px-4 py-1">xx</td>
+                      <td>mm</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <hr class="border-t-0">
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
 </body>
 </html>

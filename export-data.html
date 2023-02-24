@@ -22,13 +22,12 @@
           <div class="fixed z-20 top-0 left-0 flex w-full items-center bg-hijau-tua">
             <div class="pt-3 pb-4 pl-2 items-center">
               <button class="ml-4 mr-2 text-gading fa-solid fa-bars text-2xl" @click="sidebarOpen = !sidebarOpen"></button>
-              <a href="#" class="ml-6 text-gading text-3xl font-medium">Export Data</a>
+              <a href="#" class="ml-6 text-gading text-3xl font-medium">Dashboard</a>
             </div>
-
             <div class="absolute right-0 px-4">
               <div class="flex items-center">
-                <a href="#" class="pt-2 pb-4 mr-4 text-gading text-xl font-normal">Monitoring ARG Banten</a>
-                <img src="bmkg-logo.png" class="py-2 mx-3 relative w-8" />
+                <a href="#" class="pt-2 pb-4 mr-4 text-gading text-xl font-normal max-md:hidden">Monitoring ARG Banten</a>
+                <img src="src/assets/bmkg-logo.png" class="py-2 mx-3 relative w-8" />
               </div>
             </div>
           </div>
@@ -36,42 +35,44 @@
         <!-- Header End -->
 
         <!-- Side Bar Start -->
-        <div class="z-20 w-56 top-0 left-0 h-full fixed bg-hijau-tua mt-16 px-5 py-8 flex-shrink-0 flex flex-col border-r transition-all duration-300" :class="{ '-ml-56': !sidebarOpen }">
-          <ul class="list-none relative">
-            <li class="px-2 py-2">
-              <a href="index.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
-                <i class="fa-solid fa-house text-2xl mr-5"></i>
-                <p>Dashboard</p>
-              </a>
-            </li>
-            <li class="px-2 py-2">
-              <a href="access-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
-                <i class="fa-solid fa-database text-2xl mr-5"></i>
-                <p>Access Data</p>
-              </a>
-            </li>
-            <li class="px-2 py-2">
-              <a href="history-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
-                <i class="fa-solid fa-clock-rotate-left text-2xl mr-5"></i>
-                <p>History Data</p>
-              </a>
-            </li>
-            <li class="px-2 py-2">
-              <a href="export-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
-                <i class="fa-solid fa-download text-2xl mr-5"></i>
-                <p>Export Data</p>
-              </a>
-            </li>
-          </ul>
+        <div>
+          <div class="fixed z-20 flex-shrink-0 w-56 top-0 left-0 h-full bg-hijau-tua mt-16 px-2 py-8 flex flex-col border-r transition-all duration-300" :class="{ '-ml-56': !sidebarOpen, 'max-sm:w-20': sidebarOpen}">
+            <ul class="list-none relative">
+              <li class="px-2 py-2">
+                <a href="index.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
+                  <i class="fa-solid fa-house text-2xl mr-5"></i>
+                  <p class="max-sm:hidden">Dashboard</p>
+                </a>
+              </li>
+              <li class="px-2 py-2">
+                <a href="access-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
+                  <i class="fa-solid fa-database text-2xl mr-5"></i>
+                  <p class="max-sm:hidden">Access Data</p>
+                </a>
+              </li>
+              <li class="px-2 py-2">
+                <a href="history-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
+                  <i class="fa-solid fa-clock-rotate-left text-2xl mr-5"></i>
+                  <p class="max-sm:hidden">History Data</p>
+                </a>
+              </li>
+              <li class="px-2 py-2">
+                <a href="export-data.html" class="text-gading no-underline px-3 py-4 flex items-center hover:bg-gading hover:text-hijau-tua duration-300 rounded-md">
+                  <i class="fa-solid fa-download text-2xl mr-5"></i>
+                  <p class="max-sm:hidden">Export Data</p>
+                </a>
+              </li>
+            </ul>
+            <!-- Side Bar End -->
+          </div>
         </div>
-        <!-- Side Bar End -->
       </div>
     </header>
 
-    <div class="transition-all duration-300" :class="{ 'ml-56': sidebarOpen}">
+    <div class="transition-all duration-300" :class="{ 'ml-56': sidebarOpen, 'max-sm:ml-20': sidebarOpen}">
       <div class="z-10 mt-20 w-full">
         <div class="shadow-lg bg-putih-kuning rounded-lg ml-4 mr-4">
-          <h1 class="text-2xl p-4">Export Data</h1>
+          <h1 class="text-3xl p-4">Export Data</h1>
         </div>
       </div>
     </div>

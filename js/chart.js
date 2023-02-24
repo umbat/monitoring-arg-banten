@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     data: {
       datasets: [
         {
-          pointRadius: 4,
+          pointRadius: 5,
           pointBackgroundColor: 'rgba(0,0,255,1)',
           data: xyValues,
         },
